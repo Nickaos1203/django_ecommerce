@@ -5,6 +5,13 @@
 <h2>{{ product.name }}</h2>
 <img src="{{ product.thumbnail.url }}" alt="{{ product.slug}}">
 <p>Description : {{ product.description }}</p>
-<p>Prix : {{ product.price}}</p>
+<p>Quantité disponible : {{product.stock}}</p>
+<p>Prix : {{ product.price}}€</p>
+
+{% if user.is_authenticated %}
+    <p>
+        <a href="{% url 'add_to_cart' product.slug %}">Ajouter dans le panier</a>
+    </p>
+{% endif%}
 
 {% endblock %}

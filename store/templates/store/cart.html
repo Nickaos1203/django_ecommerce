@@ -1,0 +1,14 @@
+{% extends 'base.html'%}
+
+{% block content %}
+
+{% for order in orders %}
+<ul>
+    <li>{{order.product.name}}</li>
+    <li><img src="{{ order.product.thumbnail.url}}" alt="{{order.product.name}}" style="max-width: 200px;"></li>
+    <li>quantité : {{order.quantity}}</li>
+</ul>
+
+{% endfor %}
+
+{% endblock %}
